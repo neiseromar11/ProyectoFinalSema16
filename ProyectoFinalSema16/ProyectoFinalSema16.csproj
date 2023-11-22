@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Operaciones.cs" />
     <Compile Include="Pantallas.cs" />
+    <Compile Include="PantallasSecundarias.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
