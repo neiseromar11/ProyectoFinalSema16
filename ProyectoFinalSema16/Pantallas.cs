@@ -29,18 +29,53 @@ namespace ProyectoFinalSema16
         //funcion de gestionar productos
         public static int GestionarProductos()
         {
-            string texto = ("--------------------------------------------------\r\n" +
-                "||       Gestionar Productos - Mi Tiendita      ||\r\n" +
-                "--------------------------------------------------\r\n" +
-                "|| 1. Agregar Producto                          ||\r\n" +
-                "|| 2. Eliminar Producto                         ||\r\n" +
-                "|| 3. Modificar Producto                        ||\r\n" +
-                "|| 4. Mostrar Inventario                        ||\r\n" +
-                "|| 5. Volver al Menú Principal                  ||\r\n" +
-                "--------------------------------------------------\r\n");
-            Console.Write(texto);
+            int opcionProducto = 0;
 
-            return Operaciones.getEntero("Seleccione una opción: ", texto);
+
+            do
+            {
+                string texto = ("--------------------------------------------------\r\n" +
+                    "||       Gestionar Productos - Mi Tiendita      ||\r\n" +
+                    "--------------------------------------------------\r\n" +
+                    "|| 1. Agregar Producto                          ||\r\n" +
+                    "|| 2. Eliminar Producto                         ||\r\n" +
+                    "|| 3. Modificar Producto                        ||\r\n" +
+                    "|| 4. Mostrar Inventario                        ||\r\n" +
+                    "|| 5. Volver al Menú Principal                  ||\r\n" +
+                    "--------------------------------------------------\r\n");
+                Console.Write(texto);
+
+                opcionProducto = Operaciones.getEntero("Seleccione una opción: ", texto);
+
+                Console.Clear();
+                switch (opcionProducto)
+                {
+                    case 1:
+
+                        PantallasSecundarias.AgregarProducto();
+                        break;
+                    case 2:
+                        PantallasSecundarias.EliminarProducto();
+                        break;
+                    case 3:
+                        PantallasSecundarias.ModificarProducto();
+                        break;
+                    case 4:
+                        PantallasSecundarias.MostrarInventario();
+                        break;
+                    case 5:
+                        opcionProducto = pantallaPrincipal();
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+
+            } while (opcionProducto != 5);
+
+            // Retorna la opción para actualizarla en el método Main
+            return opcionProducto;
+
         }
         //funcion de gestionar almacenes
         public static int GestionarAlmacenes() {
@@ -54,5 +89,6 @@ namespace ProyectoFinalSema16
             return 0;
 
         } 
+        
     }
 }
