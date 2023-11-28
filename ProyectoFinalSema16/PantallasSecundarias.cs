@@ -9,6 +9,7 @@ namespace ProyectoFinalSema16
     //Pantallas secundarias
     public class PantallasSecundarias
     {
+<<<<<<< HEAD
         public static int AgregarProducto()
         {
 
@@ -70,6 +71,9 @@ namespace ProyectoFinalSema16
             return 0;
 
         }
+=======
+
+>>>>>>> 371f5fb405c1228f7135a7b27d9704677e6f19c0
 
     }
 }
