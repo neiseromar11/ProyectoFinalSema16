@@ -63,9 +63,18 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int GestionarAlmacenes()
         {
+            string texto = "--------------------------------------------------\n" +
+                           "|| Gestionar Almacenes - Mi Tiendita ||\n" +
+                           "--------------------------------------------------\n" +
+                           "|| 1. Agregar Almacén ||\n" +
+                           "|| 2. Eliminar Almacén ||\n" +
+                           "|| 3. Mostrar Almacenes ||\n" +
+                           "|| 4. Volver al Menú Principal ||\n" +
+                           "--------------------------------------------------\n";
+            Console.Write(texto);
+            return Operaciones.getEntero("Seleccione una opción: ", texto);
 
-
-            return 0;
+            
         }
         //funcion de gestionar almacenes
         public static int AgregarExtraerProductos()
