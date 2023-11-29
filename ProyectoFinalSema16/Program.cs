@@ -14,18 +14,21 @@ namespace ProyectoFinalSema16
             int opcion = PantallaPrincipal.PantallaMain();
             do
             {
-                
+
                 Console.Clear();
-                //switch para las funciones
+                
                 switch (opcion)
                 {
                     case 1:
+                       
                         opcion = PantallasSecundarias.GestionarProductos();
                         break;
                     case 2:
+                       
                         opcion = PantallasSecundarias.GestionarAlmacenes();
                         break;
                     case 3:
+                        
                         opcion = PantallasSecundarias.AgregarExtraerProductos();
                         break;
                     case 0:

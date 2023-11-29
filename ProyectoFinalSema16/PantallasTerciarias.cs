@@ -83,6 +83,36 @@ namespace ProyectoFinalSema16
                 "....\r\n");
             return 0;
         }
+        public static void AgregarAlmacen()
+        {
+            string texto = "===== Pantalla para Agregar Almacén =====\r\n" +
+                        "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            string nombreRegistrado = Operaciones.getTextoPantalla("Ingrese el nombre del nuevo almacén: \n" + ">");
+
+            nombre[contador] = nombreRegistrado;
+            contador++;
+
+            string texto2 = "--------------------------------------------------\r\n" +
+                            "Confirmación: Almacén agregado exitosamente.\r\n";
+            Console.Write(texto2);
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+        public static void EliminarAlmacen()
+        {
+            int indice = 0;
+            if (indice >= 0 && indice < contador)
+            {
+                for (int i = indice; i < contador - 1; i++)
+                {
+                    nombre[i] = nombre[i + 1];
+                }
+                contador--;
+            }
+        }
 
 
 

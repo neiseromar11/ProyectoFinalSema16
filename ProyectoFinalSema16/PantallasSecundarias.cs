@@ -63,21 +63,55 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int GestionarAlmacenes()
         {
-            
-            string texto = "--------------------------------------------------\n" +
+            int opcionProducto = 0;
+            do
+            {
+                string texto = "---------------------------------------\n" +
                            "|| Gestionar Almacenes - Mi Tiendita ||\n" +
-                           "--------------------------------------------------\n" +
-                           "|| 1. Agregar Almacén ||\n" +
-                           "|| 2. Eliminar Almacén ||\n" +
-                           "|| 3. Mostrar Almacenes ||\n" +
-                           "|| 4. Volver al Menú Principal ||\n" +
+                           "---------------------------------------\n" +
+                           "|| 1. Agregar Almacén                ||\n" +
+                           "|| 2. Eliminar Almacén               ||\n" +
+                           "|| 3. Mostrar Almacenes              ||\n" +
+                           "|| 4. Volver al Menú Principal       ||\n" +
                            "--------------------------------------------------\n";
-            Console.Write(texto);
-            return Operaciones.getEntero("Seleccione una opción: ", texto);
+                Console.Write(texto);
+                opcionProducto =Operaciones.getEntero("Seleccione una opción: ", texto);
+                
+                switch (opcionProducto)
+                {
+                    case 0:
+                        Console.Clear();
+                        PantallasSecundarias.GestionarAlmacenes();
+                        break;
+                    case 1:
+                        Console.Clear();
+                        PantallasTerciarias.AgregarAlmacen();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        PantallasTerciarias.EliminarAlmacen();
+                        //aun falta completarlo
+                        break;
+                    case 3:
+                        Console.Clear();
+                        //PantallaCodigo.MostrarAlmacenes();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        opcionProducto = PantallaPrincipal.PantallaMain();
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
+                        break;
+                }
+            } while (opcionProducto != 4);
 
-            
+            return opcionProducto;
         }
         //funcion de gestionar almacenes
+
+
+
         public static int AgregarExtraerProductos()
         {
             int opcionProducto = 0;

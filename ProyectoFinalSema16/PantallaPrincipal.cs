@@ -10,6 +10,7 @@ namespace ProyectoFinalSema16
     {
         public static int PantallaMain()
         {
+            Console.Clear();
             string texto = ("==================================================\r\n" +
                 "||                                              ||\r\n" +
                 "||        Sistema de Inventario \"Mi Tiendita\"   ||\r\n" +
