@@ -9,23 +9,39 @@ namespace ProyectoFinalSema16
     //Pantallas secundarias
     public class PantallasSecundarias
     {
-<<<<<<< HEAD
+        public static string[] nombre=new string[100];
+        public static float[] precios=new float[100];
+        public static float[] cantidad=new float[100];
+        public static int contador = 0;
         public static int AgregarProducto()
         {
 
-            Console.WriteLine("===== Pantalla para Agregar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "Ingrese el precio del producto:\r\n" +
-                "[Usuario ingresa el precio]\r\n" +
-                "Ingrese la cantidad del producto:\r\n" +
-                "[Usuario ingresa la cantidad]\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Confirmación: Producto agregado exitosamente.\r\n");
-            Console.ReadKey();
-            return 0;
+            string texto = ("===== Pantalla para Agregar Producto =====\r\n" +
+                "--------------------------------------------------\r\n");
+            Console.Write(texto);
+            string nombreProducto=Operaciones.getTextoPantalla("Ingrese el nombre del producto:\r\n");
+            float precioProducto = Operaciones.getDecimal("Ingrese el precio del producto:\r\n");
+            float cantidadProducto = Operaciones.getDecimal("Ingrese la cantidad del producto:\r\n");
+            if (contador == 300)
+            {
+                Console.WriteLine("La lista ya esta llena");
 
+            }
+            else
+            {
+                nombre[contador] = nombreProducto;
+                precios[contador] = precioProducto;
+                cantidad[contador] = cantidadProducto;
+                contador++;
+
+
+                string texto2 = ("--------------------------------------------------\r\n" +
+                    "Confirmación: Producto agregado exitosamente.\r\n");
+                Console.Write(texto2);
+            }
+                Console.ReadKey();
+                return 0;
+            
         }
 
         public static int EliminarProducto()
@@ -71,9 +87,7 @@ namespace ProyectoFinalSema16
             return 0;
 
         }
-=======
 
->>>>>>> 371f5fb405c1228f7135a7b27d9704677e6f19c0
 
     }
 }
