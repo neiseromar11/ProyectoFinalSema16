@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalSema16
 {
-    //clase de pantallas principales
     public class PantallasSecundarias
-    {      
+    {
         //funcion de gestionar productos
         public static int GestionarProductos()
         {
@@ -47,6 +46,7 @@ namespace ProyectoFinalSema16
                         PantallasTerciarias.MostrarInventario();
                         break;
                     case 5:
+                        //Lexi 
                         opcionProducto = PantallaPrincipal.PantallaMain();
                         break;
                     default:
@@ -56,31 +56,24 @@ namespace ProyectoFinalSema16
 
             } while (opcionProducto != 5);
 
-                string texto2 = ("--------------------------------------------------\r\n" +
-                    "Confirmación: Producto agregado exitosamente.\r\n");
-                Console.Write(texto2);
-            }
-                Console.ReadKey();
-                Console.Clear();
-                return Pantallas.GestionarProductos();
-            //falso
             // Retorna la opción para actualizarla en el método Main
             return opcionProducto;
 
         }
         //funcion de gestionar almacenes
-        public static int GestionarAlmacenes() 
+        public static int GestionarAlmacenes()
         {
-            
+
 
             return 0;
         }
         //funcion de gestionar almacenes
-        public static int AgregarExtraerProductos() {
+        public static int AgregarExtraerProductos()
+        {
 
             return 0;
 
-        } 
-        
+        }
+
     }
 }
