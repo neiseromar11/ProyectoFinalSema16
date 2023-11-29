@@ -49,13 +49,34 @@ namespace ProyectoFinalSema16
 
         public static int EliminarProducto()
         {
-            Console.WriteLine("===== Pantalla para Eliminar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a eliminar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Confirmación: Producto eliminado exitosamente.\r\n");
-            return 0;
+            string texto = "===== Pantalla para Eliminar Producto =====\r\n" +
+                    "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
+
+            for (int i = 0; i < contador - 1; i++)
+            {
+                if (nombre[i] == valorEliminar)
+                {
+                    if (cantidad[i] == 0)
+                    {
+                        Console.WriteLine("No quedan productos");
+                    }
+                    else
+                    {
+                        cantidad[i]--;
+                    }
+                }
+            }
+
+            string texto2 = "--------------------------------------------------\r\n" +
+                "Confirmación: Producto eliminado exitosamente.\r\n";
+            Console.Write(texto2);
+
+            Console.ReadKey();
+            Console.Clear();
+            return PantallasSecundarias.GestionarProductos();
         }
 
         public static int ModificarProducto()
