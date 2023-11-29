@@ -78,8 +78,9 @@ namespace ProyectoFinalSema16
 
         }
         //funcion de gestionar almacenes
-        public static int GestionarAlmacenes() {
-         
+        public static int GestionarAlmacenes() 
+        {
+            
 
             return 0;
         }

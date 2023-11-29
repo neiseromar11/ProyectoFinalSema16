@@ -45,31 +45,17 @@ namespace ProyectoFinalSema16
                 Console.ReadKey();
                 Console.Clear();
                 return Pantallas.GestionarProductos();
-            
         }
 
         public static int EliminarProducto()
         {
-            string texto = "===== Pantalla para Eliminar Producto =====\r\n" +
-                "--------------------------------------------------\r\n";
-            Console.Write(texto);
-
-            string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
-            
-
-            string texto2 = "--------------------------------------------------\r\n" +
-                "Confirmación: Producto eliminado exitosamente.\r\n";
-
-            Console.Write(texto2);
-
-            Console.ReadKey();
-            Console.Clear();
-            return Pantallas.GestionarProductos();
-
-
-
-
-
+            Console.WriteLine("===== Pantalla para Eliminar Producto =====\r\n" +
+                "--------------------------------------------------\r\n" +
+                "Ingrese el nombre del producto a eliminar:\r\n" +
+                "[Usuario ingresa el nombre]\r\n" +
+                "--------------------------------------------------\r\n" +
+                "Confirmación: Producto eliminado exitosamente.\r\n");
+            return 0;
         }
 
         public static int ModificarProducto()
@@ -82,24 +68,24 @@ namespace ProyectoFinalSema16
                 "[Usuario ingresa el nuevo precio]\r\n" +
                 "Ingrese la nueva cantidad:\r\n" +
                 "[Usuario ingresa la nueva cantidad]\r\n" +
-                "--------------------------------------------------\r\n" +
+                "--------------------------------------------------" +
                 "Confirmación: Producto modificado exitosamente.\r\n");
             return 0;
         }
 
         public static int MostrarInventario()
         {
-
             Console.WriteLine("===== Pantalla para Mostrar Inventario =====\r\n" +
                 "--------------------------------------------------\r\n" +
                 "Inventario Actual:\r\n" +
                 "Producto 1: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
                 "Producto 2: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "...\r\n");
-
+                "....\r\n");
             return 0;
-
         }
+
+
+
 
 
     }
