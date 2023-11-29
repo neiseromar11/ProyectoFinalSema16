@@ -24,6 +24,7 @@ namespace ProyectoFinalSema16
             float precioProducto = Operaciones.getDecimal("Ingrese el precio del producto:\r\n");
             float cantidadProducto = Operaciones.getDecimal("Ingrese la cantidad del producto:\r\n");
 
+            //Condicional
             if (contador == 300)
             {
                 Console.WriteLine("La lista ya esta llena");
