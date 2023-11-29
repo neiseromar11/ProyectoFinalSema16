@@ -54,14 +54,7 @@ namespace ProyectoFinalSema16
             Console.Write(texto);
 
             string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
-            int eliminarProducto = -1;
-            for (int i = 0; i < contador; i++)
-            {
-                if (valorEliminar == nombre[i])
-                {
-                    eliminarProducto = i;
-                }
-            }
+            
 
             string texto2 = "--------------------------------------------------\r\n" +
                 "Confirmación: Producto eliminado exitosamente.\r\n";
