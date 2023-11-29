@@ -51,6 +51,7 @@ namespace ProyectoFinalSema16
                 switch (opcionProducto)
                 {
                     case 1:
+
                         PantallasSecundarias.AgregarProducto();
                         break;
                     case 2:
