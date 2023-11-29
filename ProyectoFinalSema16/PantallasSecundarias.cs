@@ -63,6 +63,7 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int GestionarAlmacenes()
         {
+            
             string texto = "--------------------------------------------------\n" +
                            "|| Gestionar Almacenes - Mi Tiendita ||\n" +
                            "--------------------------------------------------\n" +
@@ -79,7 +80,12 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int AgregarExtraerProductos()
         {
-            string texto1 = "--------------------------------------------------\n" +
+            int opcionProducto = 0;
+
+            //elewwicht
+            do
+            {
+                string texto1 = "--------------------------------------------------\n" +
             "||  Agregar y Extraer Productos - Mi Tiendita   ||\n" +
             "--------------------------------------------------\n" +
             "|| 1. Ingresar Producto en Almacén              ||\n" +
@@ -88,8 +94,34 @@ namespace ProyectoFinalSema16
             "|| 4. Volver al Menú Principal                  ||\n" +
             "--------------------------------------------------\n";
 
-            Console.Write(texto1);
-            return Operaciones.getEntero("Seleccione una opción: ", texto1);
+                Console.Write(texto1);
+
+                opcionProducto = Operaciones.getEntero("Seleccione una opción: ", texto1);
+
+                Console.Clear();
+                switch (opcionProducto)
+                {
+                    //Delegado asigna las variables del switch
+                    case 1:
+                        //PantallasTerciarias.IngresarProducto();
+                        break;
+                    case 2:
+                        //PantallasTerciarias.ExtraerProducto();
+                        break;
+                    case 3:
+                        //PantallasTerciarias.VerStock();
+                        break;
+                    case 5: 
+                        opcionProducto = PantallaPrincipal.PantallaMain();
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+
+            } while (opcionProducto != 5);
+
+            return opcionProducto;
         }
     }
 }
