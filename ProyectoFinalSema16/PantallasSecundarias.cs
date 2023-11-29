@@ -15,7 +15,7 @@ namespace ProyectoFinalSema16
         public static int contador = 0;
         public static int AgregarProducto()
         {
-            //agregar producto
+            //agregar productos
             string texto = ("===== Pantalla para Agregar Producto =====\r\n" +
                 "--------------------------------------------------\r\n");
             Console.Write(texto);
