@@ -56,6 +56,14 @@ namespace ProyectoFinalSema16
 
             } while (opcionProducto != 5);
 
+                string texto2 = ("--------------------------------------------------\r\n" +
+                    "Confirmación: Producto agregado exitosamente.\r\n");
+                Console.Write(texto2);
+            }
+                Console.ReadKey();
+                Console.Clear();
+                return Pantallas.GestionarProductos();
+            //falso
             // Retorna la opción para actualizarla en el método Main
             return opcionProducto;
 
