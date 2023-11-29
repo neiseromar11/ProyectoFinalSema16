@@ -40,7 +40,8 @@ namespace ProyectoFinalSema16
                 Console.Write(texto2);
             }
                 Console.ReadKey();
-                return 0;
+            Console.Clear();
+                return Pantallas.GestionarProductos();
             
         }
 
