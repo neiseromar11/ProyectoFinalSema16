@@ -11,7 +11,7 @@ namespace ProyectoFinalSema16
         //Pagina principal
         static void Main(string[] args)
         {
-            int opcion = Pantallas.pantallaPrincipal();
+            int opcion = PantallaPrincipal.PantallaMain();
             do
             {
                 
@@ -20,17 +20,17 @@ namespace ProyectoFinalSema16
                 switch (opcion)
                 {
                     case 1:
-                        opcion = Pantallas.GestionarProductos();
+                        opcion = PantallasSecundarias.GestionarProductos();
                         break;
                     case 2:
-                        opcion = Pantallas.GestionarAlmacenes();
+                        opcion = PantallasSecundarias.GestionarAlmacenes();
                         break;
                     case 3:
-                        opcion = Pantallas.AgregarExtraerProductos();
+                        opcion = PantallasSecundarias.AgregarExtraerProductos();
                         break;
                     case 0:
                     default:
-                        opcion = Pantallas.pantallaPrincipal();
+                        opcion = PantallaPrincipal.PantallaMain();
                         break;
 
 

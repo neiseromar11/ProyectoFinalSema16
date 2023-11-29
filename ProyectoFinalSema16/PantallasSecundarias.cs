@@ -6,87 +6,73 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalSema16
 {
-    //Pantallas secundarias
+    //clase de pantallas principales
     public class PantallasSecundarias
-    {
-        public static string[] nombre=new string[100];
-        public static float[] precios=new float[100];
-        public static float[] cantidad=new float[100];
-        public static int contador = 0;
-        public static int AgregarProducto()
+    {      
+        //funcion de gestionar productos
+        public static int GestionarProductos()
         {
-            //agregar productos
-            string texto = ("===== Pantalla para Agregar Producto =====\r\n" +
-                "--------------------------------------------------\r\n");
-            Console.Write(texto);
+            int opcionProducto = 0;
 
-            string nombreProducto=Operaciones.getTextoPantalla("Ingrese el nombre del producto:\r\n");
-            float precioProducto = Operaciones.getDecimal("Ingrese el precio del producto:\r\n");
-            float cantidadProducto = Operaciones.getDecimal("Ingrese la cantidad del producto:\r\n");
 
-            //Condicional
-            if (contador == 300)
+            do
             {
-                Console.WriteLine("La lista ya esta llena");
+                string texto = ("--------------------------------------------------\r\n" +
+                    "||       Gestionar Productos - Mi Tiendita      ||\r\n" +
+                    "--------------------------------------------------\r\n" +
+                    "|| 1. Agregar Producto                          ||\r\n" +
+                    "|| 2. Eliminar Producto                         ||\r\n" +
+                    "|| 3. Modificar Producto                        ||\r\n" +
+                    "|| 4. Mostrar Inventario                        ||\r\n" +
+                    "|| 5. Volver al Menú Principal                  ||\r\n" +
+                    "--------------------------------------------------\r\n");
+                Console.Write(texto);
 
-            }
-            else
-            {
-                nombre[contador] = nombreProducto;
-                precios[contador] = precioProducto;
-                cantidad[contador] = cantidadProducto;
-                contador++;
+                opcionProducto = Operaciones.getEntero("Seleccione una opción: ", texto);
 
-
-                string texto2 = ("--------------------------------------------------\r\n" +
-                    "Confirmación: Producto agregado exitosamente.\r\n");
-                Console.Write(texto2);
-            }
-                Console.ReadKey();
                 Console.Clear();
-                return Pantallas.GestionarProductos();
-        }
+                switch (opcionProducto)
+                {
+                    case 1:
 
-        public static int EliminarProducto()
+                        PantallasTerciarias.AgregarProducto();
+                        break;
+                    case 2:
+                        PantallasTerciarias.EliminarProducto();
+                        break;
+                    case 3:
+                        PantallasTerciarias.ModificarProducto();
+                        break;
+                    case 4:
+                        PantallasTerciarias.MostrarInventario();
+                        break;
+                    case 5:
+                        opcionProducto = PantallaPrincipal.PantallaMain();
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        break;
+                }
+
+            } while (opcionProducto != 5);
+
+            // Retorna la opción para actualizarla en el método Main
+            return opcionProducto;
+
+        }
+        //funcion de gestionar almacenes
+        public static int GestionarAlmacenes() 
         {
-            Console.WriteLine("===== Pantalla para Eliminar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a eliminar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Confirmación: Producto eliminado exitosamente.\r\n");
+            
+
             return 0;
         }
+        //funcion de gestionar almacenes
+        public static int AgregarExtraerProductos() {
 
-        public static int ModificarProducto()
-        {
-            Console.WriteLine("===== Pantalla para Modificar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a modificar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "Ingrese el nuevo precio:\r\n" +
-                "[Usuario ingresa el nuevo precio]\r\n" +
-                "Ingrese la nueva cantidad:\r\n" +
-                "[Usuario ingresa la nueva cantidad]\r\n" +
-                "--------------------------------------------------" +
-                "Confirmación: Producto modificado exitosamente.\r\n");
             return 0;
-        }
 
-        public static int MostrarInventario()
-        {
-            Console.WriteLine("===== Pantalla para Mostrar Inventario =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Inventario Actual:\r\n" +
-                "Producto 1: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "Producto 2: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "....\r\n");
-            return 0;
-        }
-
-
-
-
-
+        } 
+        
     }
 }

@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operaciones.cs" />
-    <Compile Include="Pantallas.cs" />
+    <Compile Include="PantallaPrincipal.cs" />
     <Compile Include="PantallasSecundarias.cs" />
+    <Compile Include="PantallasTerciarias.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
