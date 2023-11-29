@@ -19,9 +19,11 @@ namespace ProyectoFinalSema16
             string texto = ("===== Pantalla para Agregar Producto =====\r\n" +
                 "--------------------------------------------------\r\n");
             Console.Write(texto);
+
             string nombreProducto=Operaciones.getTextoPantalla("Ingrese el nombre del producto:\r\n");
             float precioProducto = Operaciones.getDecimal("Ingrese el precio del producto:\r\n");
             float cantidadProducto = Operaciones.getDecimal("Ingrese la cantidad del producto:\r\n");
+
             if (contador == 300)
             {
                 Console.WriteLine("La lista ya esta llena");
@@ -40,23 +42,39 @@ namespace ProyectoFinalSema16
                 Console.Write(texto2);
             }
                 Console.ReadKey();
-            Console.Clear();
+                Console.Clear();
                 return Pantallas.GestionarProductos();
             
         }
 
         public static int EliminarProducto()
         {
-            Console.WriteLine("===== Pantalla para Eliminar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a eliminar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Confirmación: Producto eliminado exitosamente.\r\n");
+            string texto = "===== Pantalla para Eliminar Producto =====\r\n" +
+                "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
+            int eliminarProducto = -1;
+            for (int i = 0; i < contador; i++)
+            {
+                if (valorEliminar == nombre[i])
+                {
+                    eliminarProducto = i;
+                }
+            }
+
+            string texto2 = "--------------------------------------------------\r\n" +
+                "Confirmación: Producto eliminado exitosamente.\r\n";
+
+            Console.Write(texto2);
+
+            Console.ReadKey();
+            Console.Clear();
+            return Pantallas.GestionarProductos();
 
 
 
-            return 0;
+
 
         }
 
