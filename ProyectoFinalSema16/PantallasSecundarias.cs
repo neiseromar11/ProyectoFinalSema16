@@ -145,15 +145,15 @@ namespace ProyectoFinalSema16
                         break;
                     case 4: 
                     default:
-                        if (opcionProducto != 5)
+                        if (opcionProducto != 4)
                         {
                             Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
-                            opcionProducto = 5; 
+                            opcionProducto = 4; 
                         }
                         break;
                 }
 
-            } while (opcionProducto != 5);
+            } while (opcionProducto != 4);
 
             return 0;
         }
