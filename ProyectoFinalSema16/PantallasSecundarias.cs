@@ -11,10 +11,6 @@ namespace ProyectoFinalSema16
         //funcion de gestionar productos
         public static int GestionarProductos()
         {
-            int opcionProducto = 0;
-
-            do
-            {
                 string texto = ("--------------------------------------------------\r\n" +
                     "||       Gestionar Productos - Mi Tiendita      ||\r\n" +
                     "--------------------------------------------------\r\n" +
@@ -25,40 +21,38 @@ namespace ProyectoFinalSema16
                     "|| 5. Volver al Menú Principal                  ||\r\n" +
                     "--------------------------------------------------\r\n");
                 Console.Write(texto);
+            int opciongestion = int.Parse(Console.ReadLine());
 
-                opcionProducto = Operaciones.getEntero("Seleccione una opción: ", texto);
-
+            if (opciongestion == 1)
+            {
                 Console.Clear();
-                switch (opcionProducto)
-                {
-                    case 1:
-                        PantallasTerciarias.AgregarProducto();
-                        break;
-                    case 2:
-                        PantallasTerciarias.EliminarProducto();
-                        break;
-                    case 3:
-                        PantallasTerciarias.ModificarProducto();
-                        break;
-                    case 4:
-                        PantallasTerciarias.MostrarInventario();
-                        break;
-                    case 5:
-                    default:
-                        
-                        if (opcionProducto != 5)
-                        {
-                            Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
-                            Console.ReadKey();
-                            opcionProducto = 5;
-                        }
-                        break;
-                }
+                PantallasTerciarias.AgregarProducto();
+                return GestionarProductos();
+            }
+            if (opciongestion == 2)
+            {
+                Console.Clear();
+                PantallasTerciarias.EliminarProducto();
+                return GestionarProductos();
+            }
+            if (opciongestion == 3)
+            {
+                Console.Clear();
+                PantallasTerciarias.ModificarProducto();
+                return GestionarProductos();
+            }
+            if (opciongestion == 4)
+            {
+                Console.Clear() ;
+                PantallasTerciarias.MostrarInventario();
+            }
+            if (opciongestion == 5)
+            {
+                Console.Clear();
+                PantallaPrincipal.PantallaMain();
+            }
+            return opciongestion;
 
-            } while (opcionProducto != 5);
-
-            // Retorna la opción para actualizarla en el método Main
-            return 0;
 
         }
         //funcion de gestionar almacenes
@@ -77,10 +71,29 @@ namespace ProyectoFinalSema16
 
                  int opcion =int.Parse(Console.ReadLine());
 
-             if (opcion==1)PantallasTerciarias.AgregarAlmacen();
-             if (opcion==2)PantallasTerciarias.EliminarAlmacen();
-             if (opcion==3)PantallasTerciarias.MostrarAlmacenes();
-             if (opcion == 4) PantallaPrincipal.PantallaMain();
+            if (opcion == 1)
+            {
+                Console.Clear ();
+                PantallasTerciarias.AgregarAlmacen();
+                return GestionarAlmacenes();
+            }
+             if (opcion == 2)
+             {
+                Console.Clear ();
+                PantallasTerciarias.EliminarAlmacen();
+                return GestionarAlmacenes();
+            }
+             if (opcion == 3)
+             {
+                Console.Clear () ;
+                PantallasTerciarias.MostrarAlmacenes();
+                return GestionarAlmacenes();
+            }
+             if (opcion == 4)
+             {
+                Console.Clear() ;
+                PantallaPrincipal.PantallaMain();
+             }
             return opcion;    
              
         }

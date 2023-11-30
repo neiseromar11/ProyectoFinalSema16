@@ -9,6 +9,7 @@ namespace ProyectoFinalSema16
     //Pantallas secundarias
     public class PantallasTerciarias
     {
+        public static string[] tiendacosas = new string[100];
         public static string[] nombre=new string[100];
         public static float[] precios=new float[100];
         public static float[] cantidad=new float[100];
@@ -38,7 +39,7 @@ namespace ProyectoFinalSema16
             }
             else
             {
-                nombre[contador] = nombreProducto;
+                tiendacosas[contador] = nombreProducto;
                 precios[contador] = precioProducto;
                 cantidad[contador] = cantidadProducto;
                 contador++;
@@ -64,7 +65,7 @@ namespace ProyectoFinalSema16
             
             for (int i = 0; i < contador; i++)
             {
-                if (nombre[i] == valorEliminar)
+                if (tiendacosas[i] == valorEliminar)
                 {
                     posicion = i;               
                 }
@@ -72,7 +73,7 @@ namespace ProyectoFinalSema16
 
             for (int i = posicion; i < contador; i++)
             {
-                nombre[i] = nombre[i + 1];
+                tiendacosas[i] = tiendacosas[i + 1];
                 precios[i] = precios[i + 1];
                 cantidad[i] = cantidad[i + 1];
             }
@@ -145,7 +146,7 @@ namespace ProyectoFinalSema16
 
             for (i = 0; i < contador; i++)
             {
-                Console.WriteLine("Producto" + (i + 1) + ":" + "[" + nombre[i] +"]\t"+ " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
+                Console.WriteLine("Producto" + (i + 1) + ":" + "[" + tiendacosas[i] +"]\t"+ " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
 
             }
 
