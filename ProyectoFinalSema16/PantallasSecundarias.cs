@@ -58,7 +58,7 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int GestionarAlmacenes()
         {
-               Console.Clear();
+               
                 string texto = "---------------------------------------\n" +
                            "|| Gestionar Almacenes - Mi Tiendita ||\n" +
                            "---------------------------------------\n" +

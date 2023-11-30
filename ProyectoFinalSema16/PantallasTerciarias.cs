@@ -13,8 +13,9 @@ namespace ProyectoFinalSema16
         public static string[] nombre=new string[100];
         public static float[] precios=new float[100];
         public static float[] cantidad=new float[100];
-        public static int contador = 0;
-        
+        public static int contadorP = 0;
+        public static int contadorN = 0;
+
         /*
             
             GESTIONAR PRODUCTO
@@ -32,17 +33,17 @@ namespace ProyectoFinalSema16
             float cantidadProducto = Operaciones.getDecimal("Ingrese la cantidad del producto:\r\n");
 
             //Condicional
-            if (contador == 300)
+            if (contadorP == 300)
             {
                 Console.WriteLine("La lista ya esta llena");
 
             }
             else
             {
-                tiendacosas[contador] = nombreProducto;
-                precios[contador] = precioProducto;
-                cantidad[contador] = cantidadProducto;
-                contador++;
+                tiendacosas[contadorP] = nombreProducto;
+                precios[contadorP] = precioProducto;
+                cantidad[contadorP] = cantidadProducto;
+                contadorP++;
 
 
                 string texto2 = ("--------------------------------------------------\r\n" +
@@ -63,7 +64,7 @@ namespace ProyectoFinalSema16
             string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
             int posicion = 0;
             
-            for (int i = 0; i < contador; i++)
+            for (int i = 0; i < contadorP; i++)
             {
                 if (tiendacosas[i] == valorEliminar)
                 {
@@ -71,13 +72,13 @@ namespace ProyectoFinalSema16
                 }
             }
 
-            for (int i = posicion; i < contador; i++)
+            for (int i = posicion; i < contadorP; i++)
             {
                 tiendacosas[i] = tiendacosas[i + 1];
                 precios[i] = precios[i + 1];
                 cantidad[i] = cantidad[i + 1];
             }
-            contador--;
+            contadorP--;
 
             string texto2 = "--------------------------------------------------\r\n" +
                 "Confirmación: Producto eliminado exitosamente.\r\n";
@@ -97,9 +98,9 @@ namespace ProyectoFinalSema16
             string nombreProducto = Operaciones.getTextoPantalla("Ingrese el nombre del producto a modificar:\r\n");
 
             int posicionEncontrada = -1;
-            for (int i = 0; i < contador; i++)
+            for (int i = 0; i < contadorP; i++)
             {
-                if (nombreProducto == nombre[i])
+                if (nombreProducto == tiendacosas[i])
                 {
                     posicionEncontrada = i;
                 }
@@ -137,14 +138,14 @@ namespace ProyectoFinalSema16
             "Inventario Actual:\r\n";
             Console.Write(texto);
 
-            if (contador == 0)
+            if (contadorP == 0)
             {
                 Console.WriteLine("No existen productos");
             }
 
             int i;
 
-            for (i = 0; i < contador; i++)
+            for (i = 0; i < contadorP; i++)
             {
                 Console.WriteLine("Producto" + (i + 1) + ":" + "[" + tiendacosas[i] +"]\t"+ " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
 
@@ -174,8 +175,8 @@ namespace ProyectoFinalSema16
 
             string nombreRegistrado = Operaciones.getTextoPantalla("Ingrese el nombre del nuevo almacén: \n" + ">");
 
-            nombre[contador] = nombreRegistrado;
-            contador++;
+            nombre[contadorN] = nombreRegistrado;
+            contadorN++;
 
             string texto2 = "--------------------------------------------------\r\n" +
                             "Confirmación: Almacén agregado exitosamente.\r\n";
@@ -194,7 +195,7 @@ namespace ProyectoFinalSema16
             string nombreEliminar = Console.ReadLine();
 
             int indice = -1;
-            for (int i = 0; i < contador; i++)
+            for (int i = 0; i < contadorN; i++)
             {
                 if (nombre[i] == nombreEliminar)
                 {
@@ -216,7 +217,7 @@ namespace ProyectoFinalSema16
 
             nombre = nuevo;
 
-            contador--;
+            contadorN--;
 
             string texto2 = "--------------------------------------------------\r\n" +
                             "Confirmación: Almacén eliminado exitosamente.\r\n";
@@ -231,7 +232,7 @@ namespace ProyectoFinalSema16
             string texto = "===== Pantalla para Mostrar Almacenes =====\r\n" +
                         "--------------------------------------------------\r\n";
             Console.Write(texto);
-            for (int i = 0; i < contador; i++)
+            for (int i = 0; i < contadorN; i++)
             {
                 Console.WriteLine("Almacén " + (i + 1) + ": " + nombre[i]);
 

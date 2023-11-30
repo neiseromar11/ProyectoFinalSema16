@@ -41,11 +41,10 @@ namespace ProyectoFinalSema16
                     Console.Clear();
                     PantallasSecundarias.AgregarExtraerProductos();
                 }
-                return Operaciones.getEntero("Seleccione una opción y presione Enter: ", texto);
 
+                return Operaciones.getEntero("Clickea X para salir, gracias por utilizar el programa." , texto);
 
             }while (true);
-            
         }
     }
 }
