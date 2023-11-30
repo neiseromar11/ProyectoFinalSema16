@@ -103,20 +103,64 @@ namespace ProyectoFinalSema16
         }
         public static void EliminarAlmacen()
         {
-            int indice = 0;
-            if (indice >= 0 && indice < contador)
+            string texto = "===== Pantalla para Eliminar Almacén =====\r\n" +
+                        "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            Console.Write("Ingrese el nombre del almacén a eliminar: ");
+            string nombreEliminar = Console.ReadLine();
+
+            int indice = -1;
+            for (int i = 0; i < contador; i++)
             {
-                for (int i = indice; i < contador - 1; i++)
+                if (nombre[i] == nombreEliminar)
                 {
-                    nombre[i] = nombre[i + 1];
+                    indice = i;
+                    break;
                 }
-                contador--;
             }
+            string[] nuevo = new string[nombre.Length - 1];
+
+            for (int i = 0; i < indice; i++)
+            {
+                nuevo[i] = nombre[i];
+            }
+
+            for (int i = indice; i < nuevo.Length; i++)
+            {
+                nuevo[i] = nombre[i + 1];
+            }
+
+            nombre = nuevo;
+
+            contador--;
+
+            Console.WriteLine("Almacén '" + nombreEliminar + "' eliminado exitosamente.");
+
+            Console.WriteLine("El nuevo arreglo es: ");
+            for (int i = 0; i < contador; i++)
+            {
+                Console.Write(nombre[i] + " | ");
+            }
+
+            Console.ReadKey();
+            Console.Clear();
         }
 
+        public static void MostrarAlmacenes()
+        {
+            string texto = "===== Pantalla para Mostrar Almacenes =====\r\n" +
+                        "--------------------------------------------------\r\n";
+            Console.Write(texto);
+            for (int i = 0; i < contador; i++)
+            {
+                Console.WriteLine("Almacén " + (i + 1) + ": " + nombre[i]);
 
-
-
-
+            }
+            string texto2 = "--------------------------------------------------\r\n";
+            Console.Write(texto2);
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }

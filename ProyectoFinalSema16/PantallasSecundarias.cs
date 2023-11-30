@@ -94,7 +94,7 @@ namespace ProyectoFinalSema16
                         break;
                     case 3:
                         Console.Clear();
-                        //PantallaCodigo.MostrarAlmacenes();
+                        PantallasTerciarias.MostrarAlmacenes();
                         break;
                     case 4:
                         Console.Clear();
@@ -116,7 +116,6 @@ namespace ProyectoFinalSema16
         {
             int opcionProducto = 0;
 
-            //elewwicht
             do
             {
                 string texto1 = "--------------------------------------------------\n" +
