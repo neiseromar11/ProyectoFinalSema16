@@ -45,6 +45,7 @@ namespace ProyectoFinalSema16
                         break;
                     case 5:
                     default:
+                        PantallaPrincipal.PantallaMain();
                         if (opcionProducto != 5)
                         {
                             Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
