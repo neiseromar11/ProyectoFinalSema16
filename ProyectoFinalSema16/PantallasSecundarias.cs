@@ -13,7 +13,6 @@ namespace ProyectoFinalSema16
         {
             int opcionProducto = 0;
 
-            //elewwicht
             do
             {
                 string texto = ("--------------------------------------------------\r\n" +
@@ -33,7 +32,6 @@ namespace ProyectoFinalSema16
                 switch (opcionProducto)
                 {
                     case 1:
-
                         PantallasTerciarias.AgregarProducto();
                         break;
                     case 2:
@@ -46,18 +44,20 @@ namespace ProyectoFinalSema16
                         PantallasTerciarias.MostrarInventario();
                         break;
                     case 5:
-                        //Lexi 
-                        opcionProducto = PantallaPrincipal.PantallaMain();
-                        break;
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        if (opcionProducto != 5)
+                        {
+                            Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
+                            Console.ReadKey();
+                            opcionProducto = 5;
+                        }
                         break;
                 }
 
             } while (opcionProducto != 5);
 
             // Retorna la opción para actualizarla en el método Main
-            return opcionProducto;
+            return 0;
 
         }
         //funcion de gestionar almacenes
@@ -75,6 +75,7 @@ namespace ProyectoFinalSema16
                            "|| 4. Volver al Menú Principal       ||\n" +
                            "--------------------------------------------------\n";
                 Console.Write(texto);
+
                 opcionProducto =Operaciones.getEntero("Seleccione una opción: ", texto);
                 
                 switch (opcionProducto)
@@ -90,13 +91,14 @@ namespace ProyectoFinalSema16
                     case 2:
                         Console.Clear();
                         PantallasTerciarias.EliminarAlmacen();
-                        //aun falta completarlo
+                        
                         break;
                     case 3:
                         Console.Clear();
                         PantallasTerciarias.MostrarAlmacenes();
                         break;
                     case 4:
+                    default:
                         if (opcionProducto != 4)
                         {
                             Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
@@ -110,9 +112,6 @@ namespace ProyectoFinalSema16
             return 0;
         }
         //funcion de gestionar almacenes
-
-
-
         public static int AgregarExtraerProductos()
         {
             int opcionProducto = 0;
@@ -154,9 +153,7 @@ namespace ProyectoFinalSema16
                         }
                         break;
                 }
-
             } while (opcionProducto != 4);
-
             return 0;
         }
     }
