@@ -126,7 +126,6 @@ namespace ProyectoFinalSema16
             "|| 3. Ver Stock Actual                          ||\n" +
             "|| 4. Volver al Menú Principal                  ||\n" +
             "--------------------------------------------------\n";
-
                 Console.Write(texto1);
 
                 opcionProducto = Operaciones.getEntero("Seleccione una opción: ", texto1);
@@ -144,17 +143,19 @@ namespace ProyectoFinalSema16
                     case 3:
                         //PantallasTerciarias.VerStock();
                         break;
-                    case 5: 
-                        opcionProducto = PantallaPrincipal.PantallaMain();
-                        break;
+                    case 4: 
                     default:
-                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                        if (opcionProducto != 5)
+                        {
+                            Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
+                            opcionProducto = 5; 
+                        }
                         break;
                 }
 
             } while (opcionProducto != 5);
 
-            return opcionProducto;
+            return 0;
         }
     }
 }
