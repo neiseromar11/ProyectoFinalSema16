@@ -54,21 +54,23 @@ namespace ProyectoFinalSema16
             Console.Write(texto);
 
             string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
-
-            for (int i = 0; i < contador - 1; i++)
+            int posicion = 0;
+            
+            for (int i = 0; i < contador; i++)
             {
                 if (nombre[i] == valorEliminar)
                 {
-                    if (cantidad[i] == 0)
-                    {
-                        Console.WriteLine("No quedan productos");
-                    }
-                    else
-                    {
-                        cantidad[i]--;
-                    }
+                    posicion = i;               
                 }
             }
+
+            for (int i = posicion; i < contador; i++)
+            {
+                nombre[i] = nombre[i + 1];
+                precios[i] = precios[i + 1];
+                cantidad[i] = cantidad[i + 1];
+            }
+            contador--;
 
             string texto2 = "--------------------------------------------------\r\n" +
                 "Confirmación: Producto eliminado exitosamente.\r\n";
@@ -100,13 +102,19 @@ namespace ProyectoFinalSema16
 
         public static int MostrarInventario()
         {
-            Console.WriteLine("===== Pantalla para Mostrar Inventario =====\r\n" +
+            string texto = "===== Pantalla para Mostrar Inventario =====\r\n" +
                 "--------------------------------------------------\r\n" +
-                "Inventario Actual:\r\n" +
-                "Producto 1: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "Producto 2: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "....\r\n");
-            return 0;
+            "Inventario Actual:\r\n";
+            Console.Write(texto);
+
+            
+            string texto2 = "...\r\n";
+            Console.Write(texto2);
+
+
+            Console.ReadKey();
+            Console.Clear();
+            return PantallasSecundarias.GestionarProductos();
         }
         public static void AgregarAlmacen()
         {
