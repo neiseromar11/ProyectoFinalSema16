@@ -13,6 +13,12 @@ namespace ProyectoFinalSema16
         public static float[] precios=new float[100];
         public static float[] cantidad=new float[100];
         public static int contador = 0;
+        
+        /*
+            
+            GESTIONAR PRODUCTO
+
+         */
         public static int AgregarProducto()
         {
             //agregar productos
@@ -150,6 +156,13 @@ namespace ProyectoFinalSema16
             Console.Clear();
             return PantallasSecundarias.GestionarProductos();
         }
+        /*
+          
+          
+          GESTIONAR ALMACEN
+          
+          
+        */
         public static void AgregarAlmacen()
         {
             string texto = "===== Pantalla para Agregar Almacén =====\r\n" +
@@ -229,5 +242,11 @@ namespace ProyectoFinalSema16
             Console.ReadKey();
             Console.Clear();
         }
+
+        /*
+             
+            AGREGAR Y EXTRAER PRODUCTOS
+         
+         */
     }
 }
