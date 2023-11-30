@@ -108,20 +108,21 @@ namespace ProyectoFinalSema16
             {
                 float nuevoPrecio = Operaciones.getDecimal("Ingrese el nuevo precio:\r\n");
                 precios[posicionEncontrada] = nuevoPrecio;
-            }
-            if (posicionEncontrada > -1)
-            {
                 float nuevaCantidad = Operaciones.getDecimal("Ingrese la nueva cantidad:\r\n");
                 cantidad[posicionEncontrada] = nuevaCantidad;
+
+                string texto1 = "--------------------------------------------------\r\n" +
+                "Confirmación: Producto modificado exitosamente.\r\n";
+                Console.Write(texto1);
             }
+
             else
             {
                 Console.WriteLine("No se ha encontrado el producto");
             }
 
-            string texto2 = "--------------------------------------------------\r\n" +
-                "Confirmación: Producto modificado exitosamente.\r\n";
-            Console.Write(texto2);
+
+            
 
             Console.ReadKey();
             Console.Clear();

@@ -97,16 +97,17 @@ namespace ProyectoFinalSema16
                         PantallasTerciarias.MostrarAlmacenes();
                         break;
                     case 4:
-                        Console.Clear();
-                        opcionProducto = PantallaPrincipal.PantallaMain();
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
+                        if (opcionProducto != 4)
+                        {
+                            Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
+                            Console.ReadKey();
+                            opcionProducto = 4;
+                        }
                         break;
                 }
             } while (opcionProducto != 4);
 
-            return opcionProducto;
+            return 0;
         }
         //funcion de gestionar almacenes
 
