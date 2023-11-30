@@ -87,9 +87,31 @@ namespace ProyectoFinalSema16
                 "--------------------------------------------------\r\n";
             Console.Write(texto);
 
-            
+            string nombreProducto = Operaciones.getTextoPantalla("Ingrese el nombre del producto a modificar:\r\n");
 
+            int posicionEncontrada = -1;
+            for (int i = 0; i < contador; i++)
+            {
+                if (nombreProducto == nombre[i])
+                {
+                    posicionEncontrada = i;
+                }
+            }
 
+            if (posicionEncontrada > -1)
+            {
+                float nuevoPrecio = Operaciones.getDecimal("Ingrese el nuevo precio:\r\n");
+                precios[posicionEncontrada] = nuevoPrecio;
+            }
+            if (posicionEncontrada > -1)
+            {
+                float nuevaCantidad = Operaciones.getDecimal("Ingrese la nueva cantidad:\r\n");
+                cantidad[posicionEncontrada] = nuevaCantidad;
+            }
+            else
+            {
+                Console.WriteLine("No se ha encontrado el producto");
+            }
 
             string texto2 = "--------------------------------------------------\r\n" +
                 "Confirmación: Producto modificado exitosamente.\r\n";
@@ -107,7 +129,19 @@ namespace ProyectoFinalSema16
             "Inventario Actual:\r\n";
             Console.Write(texto);
 
-            
+            if (contador == 0)
+            {
+                Console.WriteLine("No existen productos");
+            }
+
+            int i;
+
+            for (i = 0; i < contador; i++)
+            {
+                Console.WriteLine("Producto" + (i + 1) + ":" + "[" + nombre[i] + "]\t" + " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
+
+            }
+
             string texto2 = "...\r\n";
             Console.Write(texto2);
 
