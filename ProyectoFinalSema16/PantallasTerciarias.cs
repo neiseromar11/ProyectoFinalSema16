@@ -81,17 +81,21 @@ namespace ProyectoFinalSema16
 
         public static int ModificarProducto()
         {
-            Console.WriteLine("===== Pantalla para Modificar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a modificar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "Ingrese el nuevo precio:\r\n" +
-                "[Usuario ingresa el nuevo precio]\r\n" +
-                "Ingrese la nueva cantidad:\r\n" +
-                "[Usuario ingresa la nueva cantidad]\r\n" +
-                "--------------------------------------------------" +
-                "Confirmación: Producto modificado exitosamente.\r\n");
-            return 0;
+            string texto = "===== Pantalla para Modificar Producto =====\r\n" +
+                "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            
+
+
+
+            string texto2 = "--------------------------------------------------\r\n" +
+                "Confirmación: Producto modificado exitosamente.\r\n";
+            Console.Write(texto2);
+
+            Console.ReadKey();
+            Console.Clear();
+            return PantallasSecundarias.GestionarProductos();
         }
 
         public static int MostrarInventario()
