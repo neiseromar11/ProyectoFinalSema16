@@ -49,39 +49,106 @@ namespace ProyectoFinalSema16
 
         public static int EliminarProducto()
         {
-            Console.WriteLine("===== Pantalla para Eliminar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a eliminar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Confirmación: Producto eliminado exitosamente.\r\n");
-            return 0;
+            string texto = "===== Pantalla para Eliminar Producto =====\r\n" +
+                    "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            string valorEliminar = Operaciones.getTextoPantalla("Ingrese el nombre del producto a eliminar:\r\n");
+            int posicion = 0;
+            
+            for (int i = 0; i < contador; i++)
+            {
+                if (nombre[i] == valorEliminar)
+                {
+                    posicion = i;               
+                }
+            }
+
+            for (int i = posicion; i < contador; i++)
+            {
+                nombre[i] = nombre[i + 1];
+                precios[i] = precios[i + 1];
+                cantidad[i] = cantidad[i + 1];
+            }
+            contador--;
+
+            string texto2 = "--------------------------------------------------\r\n" +
+                "Confirmación: Producto eliminado exitosamente.\r\n";
+            Console.Write(texto2);
+
+            Console.ReadKey();
+            Console.Clear();
+            return PantallasSecundarias.GestionarProductos();
         }
 
         public static int ModificarProducto()
         {
-            Console.WriteLine("===== Pantalla para Modificar Producto =====\r\n" +
-                "--------------------------------------------------\r\n" +
-                "Ingrese el nombre del producto a modificar:\r\n" +
-                "[Usuario ingresa el nombre]\r\n" +
-                "Ingrese el nuevo precio:\r\n" +
-                "[Usuario ingresa el nuevo precio]\r\n" +
-                "Ingrese la nueva cantidad:\r\n" +
-                "[Usuario ingresa la nueva cantidad]\r\n" +
-                "--------------------------------------------------" +
-                "Confirmación: Producto modificado exitosamente.\r\n");
-            return 0;
+            string texto = "===== Pantalla para Modificar Producto =====\r\n" +
+                "--------------------------------------------------\r\n";
+            Console.Write(texto);
+
+            string nombreProducto = Operaciones.getTextoPantalla("Ingrese el nombre del producto a modificar:\r\n");
+
+            int posicionEncontrada = -1;
+            for (int i = 0; i < contador; i++)
+            {
+                if (nombreProducto == nombre[i])
+                {
+                    posicionEncontrada = i;
+                }
+            }
+
+            if (posicionEncontrada > -1)
+            {
+                float nuevoPrecio = Operaciones.getDecimal("Ingrese el nuevo precio:\r\n");
+                precios[posicionEncontrada] = nuevoPrecio;
+            }
+            if (posicionEncontrada > -1)
+            {
+                float nuevaCantidad = Operaciones.getDecimal("Ingrese la nueva cantidad:\r\n");
+                cantidad[posicionEncontrada] = nuevaCantidad;
+            }
+            else
+            {
+                Console.WriteLine("No se ha encontrado el producto");
+            }
+
+            string texto2 = "--------------------------------------------------\r\n" +
+                "Confirmación: Producto modificado exitosamente.\r\n";
+            Console.Write(texto2);
+
+            Console.ReadKey();
+            Console.Clear();
+            return PantallasSecundarias.GestionarProductos();
         }
 
         public static int MostrarInventario()
         {
-            Console.WriteLine("===== Pantalla para Mostrar Inventario =====\r\n" +
+            string texto = "===== Pantalla para Mostrar Inventario =====\r\n" +
                 "--------------------------------------------------\r\n" +
-                "Inventario Actual:\r\n" +
-                "Producto 1: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "Producto 2: [Nombre] - Precio: $[Precio] - Cantidad: [Cantidad]\r\n" +
-                "....\r\n");
-            return 0;
+            "Inventario Actual:\r\n";
+            Console.Write(texto);
+
+            if (contador == 0)
+            {
+                Console.WriteLine("No existen productos");
+            }
+
+            int i;
+
+            for (i = 0; i < contador; i++)
+            {
+                Console.WriteLine("Producto" + (i + 1) + ":" + "[" + nombre[i] + "]\t" + " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
+
+            }
+
+            string texto2 = "...\r\n";
+            Console.Write(texto2);
+
+
+            Console.ReadKey();
+            Console.Clear();
+            return PantallasSecundarias.GestionarProductos();
         }
         public static void AgregarAlmacen()
         {
