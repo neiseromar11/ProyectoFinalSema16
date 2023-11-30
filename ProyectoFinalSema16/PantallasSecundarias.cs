@@ -100,10 +100,7 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int AgregarExtraerProductos()
         {
-            int opcionProducto = 0;
-
-            do
-            {
+            
                 string texto1 = "--------------------------------------------------\n" +
             "||  Agregar y Extraer Productos - Mi Tiendita   ||\n" +
             "--------------------------------------------------\n" +
@@ -114,33 +111,32 @@ namespace ProyectoFinalSema16
             "--------------------------------------------------\n";
                 Console.Write(texto1);
 
-                opcionProducto = Operaciones.getEntero("Seleccione una opción: ", texto1);
+            int opciones = int.Parse(Console.ReadLine()); ;
 
+            if (opciones == 1)
+            {
                 Console.Clear();
-                switch (opcionProducto)
-                {
-                    //Delegado asigna las variables del switch
-                    case 1:
-                        //PantallasTerciarias.IngresarProducto();
-                        break;
-                    case 2:
-                        //PantallasTerciarias.ExtraerProducto();
-                        break;
-                    case 3:
-                        //PantallasTerciarias.VerStock();
-                        break;
-                    case 4: 
-                    default:
-                        if (opcionProducto != 4)
-                        {
-                            Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
-                            Console.ReadKey(); 
-                            opcionProducto = 4; 
-                        }
-                        break;
-                }
-            } while (opcionProducto != 4);
-            return 0;
+                //PantallasTerciarias.IngresarProducto();
+                return GestionarAlmacenes();
+            }
+            if (opciones == 2)
+            {
+                Console.Clear();
+                //PantallasTerciarias.ExtraerProducto();
+                return GestionarAlmacenes();
+            }
+            if (opciones == 3)
+            {
+                Console.Clear();
+                //PantallasTerciarias.VerStock();
+                return GestionarAlmacenes();
+            }
+            if (opciones == 4)
+            {
+                Console.Clear();
+                PantallaPrincipal.PantallaMain();
+            }
+            return opciones;
         }
     }
 }
