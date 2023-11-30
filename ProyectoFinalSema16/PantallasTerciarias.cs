@@ -144,7 +144,7 @@ namespace ProyectoFinalSema16
 
             for (i = 0; i < contador; i++)
             {
-                Console.WriteLine("Producto" + (i + 1) + ":" + "[" + nombre[i] + "]\t" + " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
+                Console.WriteLine("Producto" + (i + 1) + ":" + "[" + nombre[i] +"]\t"+ " - " + "$" + "Precio:" + "[" + precios[i] + "]\t" + " - " + "Cantidad:" + "[" + cantidad[i] + "]\t");
 
             }
 
@@ -156,6 +156,7 @@ namespace ProyectoFinalSema16
             Console.Clear();
             return PantallasSecundarias.GestionarProductos();
         }
+
         /*
           
           
