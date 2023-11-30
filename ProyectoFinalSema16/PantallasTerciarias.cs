@@ -202,13 +202,9 @@ namespace ProyectoFinalSema16
 
             contador--;
 
-            Console.WriteLine("Almacén '" + nombreEliminar + "' eliminado exitosamente.");
-
-            Console.WriteLine("El nuevo arreglo es: ");
-            for (int i = 0; i < contador; i++)
-            {
-                Console.Write(nombre[i] + " | ");
-            }
+            string texto2 = "--------------------------------------------------\r\n" +
+                            "Confirmación: Almacén eliminado exitosamente.\r\n";
+            Console.Write(texto2);
 
             Console.ReadKey();
             Console.Clear();
