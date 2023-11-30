@@ -45,7 +45,7 @@ namespace ProyectoFinalSema16
                         break;
                     case 5:
                     default:
-                        PantallaPrincipal.PantallaMain();
+                        
                         if (opcionProducto != 5)
                         {
                             Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
@@ -64,9 +64,7 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int GestionarAlmacenes()
         {
-            int opcionProducto = 0;
-            do
-            {
+               Console.Clear();
                 string texto = "---------------------------------------\n" +
                            "|| Gestionar Almacenes - Mi Tiendita ||\n" +
                            "---------------------------------------\n" +
@@ -77,40 +75,14 @@ namespace ProyectoFinalSema16
                            "--------------------------------------------------\n";
                 Console.Write(texto);
 
-                opcionProducto =Operaciones.getEntero("Seleccione una opción: ", texto);
-                
-                switch (opcionProducto)
-                {
-                    case 0:
-                        Console.Clear();
-                        PantallasSecundarias.GestionarAlmacenes();
-                        break;
-                    case 1:
-                        Console.Clear();
-                        PantallasTerciarias.AgregarAlmacen();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        PantallasTerciarias.EliminarAlmacen();
-                        
-                        break;
-                    case 3:
-                        Console.Clear();
-                        PantallasTerciarias.MostrarAlmacenes();
-                        break;
-                    case 4:
-                    default:
-                        if (opcionProducto != 4)
-                        {
-                            Console.WriteLine("¡Error! Por favor, seleccione una opción valida.");
-                            Console.ReadKey();
-                            opcionProducto = 4;
-                        }
-                        break;
-                }
-            } while (opcionProducto != 4);
+                 int opcion =int.Parse(Console.ReadLine());
 
-            return 0;
+             if (opcion==1)PantallasTerciarias.AgregarAlmacen();
+             if (opcion==2)PantallasTerciarias.EliminarAlmacen();
+             if (opcion==3)PantallasTerciarias.MostrarAlmacenes();
+             if (opcion == 4) PantallaPrincipal.PantallaMain();
+            return opcion;    
+             
         }
         //funcion de gestionar almacenes
         public static int AgregarExtraerProductos()
