@@ -128,7 +128,7 @@ namespace ProyectoFinalSema16
             if (opciones == 3)
             {
                 Console.Clear();
-                //PantallasTerciarias.VerStock();
+                PantallasTerciarias.VerStock();
                 return GestionarAlmacenes();
             }
             if (opciones == 4)

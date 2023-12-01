@@ -261,5 +261,15 @@ namespace ProyectoFinalSema16
             AGREGAR Y EXTRAER PRODUCTOS     
          */
         /********************************************************************************************************************/
+        public static void VerStock()
+        {
+
+            Console.WriteLine("HOLA MUNDO");
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+
     }
+
 }
