@@ -20,8 +20,9 @@ namespace ProyectoFinalSema16
                     "|| 4. Mostrar Inventario                        ||\r\n" +
                     "|| 5. Volver al Menú Principal                  ||\r\n" +
                     "--------------------------------------------------\r\n");
-                Console.Write(texto);
-            int opciongestion = int.Parse(Console.ReadLine());
+            
+            Console.Write(texto);
+            Console.Write("->"); int opciongestion = int.Parse(Console.ReadLine());
 
             if (opciongestion == 1)
             {

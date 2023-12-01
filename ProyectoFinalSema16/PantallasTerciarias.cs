@@ -297,6 +297,7 @@ namespace ProyectoFinalSema16
                 "Confirmación: Producto ingresado en el almacén exitosamente.");
             productosCont++;
             cantidadCont++;
+            almacenesCont++;
 
         }
         public static void ExtraerProducto()
@@ -343,13 +344,16 @@ namespace ProyectoFinalSema16
         }
         public static void VerStock()
         {
-                Console.WriteLine("===== Pantalla para Ver Stock Actual =====\n" +
-                    "--------------------------------------------------\n" +
-                    "Stock Actual en Todos los Almacenes: ");
+            string texto2 = "===== Pantalla para Ver Stock Actual =====\n" +
+                "--------------------------------------------------\n"+
+                    "Stock Actual en Todos los Almacenes: ";
+            Console.WriteLine(texto2);
                 for (int i = 0; i < productosCont; i++)
                 {
                     Console.WriteLine($"Producto {i + 1}: [{productos[i]}] - Almacén: [{almacenes[i]}] - Cantidad: [{cantidadA[i]}]");
                 }
+            Console.ReadKey();
+            Console.Clear();
         }
 
     }
