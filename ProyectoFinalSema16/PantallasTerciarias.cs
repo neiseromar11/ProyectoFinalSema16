@@ -330,17 +330,14 @@ namespace ProyectoFinalSema16
                 Console.WriteLine("Producto " + (i + 1) + ": " + tiendacosas[i]);
             }
             //Guardamos el producto a extraer y lo modificamos
+            Console.Write("> ");
             string productoExtraer = Console.ReadLine();
-            if (productos[posicion] == productoExtraer)
-            {
-                productos[posicion] = " ";
-                Console.Write("Ingrese la cantidad a extraer: \n> ");
-                int cantidadExtraer = int.Parse(Console.ReadLine());
-                cantidadA[posicion] -= cantidadExtraer;
-                Console.WriteLine("------------------------------------------------\n" +
-                    "Confirmación: Producto extraído del almacén exitosamente.");
-            }
-            else { Console.WriteLine("El producto ingresado no existe en el almacén"); }
+            Console.WriteLine(" ");
+            Console.Write("Ingrese la cantidad a extraer: \n> ");
+            int cantidadExtraer = int.Parse(Console.ReadLine());
+            cantidadA[posicion] -= cantidadExtraer;
+            Console.WriteLine("------------------------------------------------\n" +
+                "Confirmación: Producto extraído del almacén exitosamente.");
         }
         public static void VerStock()
         {
