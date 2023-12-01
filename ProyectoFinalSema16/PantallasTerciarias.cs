@@ -301,28 +301,41 @@ namespace ProyectoFinalSema16
             Console.ReadKey();
 
         }
+
         public static void ExtraerProducto()
         {
-
             int[] posicionP = new int[1000];
             int posicionPCont = 0;
-            string texto = "===== Pantalla para Extraer Producto de Almacén =====\n" +
+
+            Console.WriteLine("===== Pantalla para Extraer Producto de Almacén =====\n" +
                 "--------------------------------------------------\n" +
-                "Seleccione la opción del almacén: ";
-            Console.WriteLine(texto);
-            //Mostramos todos los almacenes
+                "Seleccione la opción del almacén: ");
+
+            // Mostramos todos los almacenes
             for (int i = 0; i < contadorN; i++)
             {
-                Console.WriteLine((i + 1) + ": " + nombre[i]);
+                Console.WriteLine($"{i + 1}: {nombre[i]}");
             }
-            //Guardamos la posición del almacén a buscar
-            int almacen = Operaciones.getEntero("> ", texto);
-            //Restamos 1 al almacén para que no afecte la posición original en la fila de la matriz
+
+            // Guardamos la posición del almacén a buscar
+            int almacen;
+            while (true)
+            {
+                Console.Write("> ");
+                if (int.TryParse(Console.ReadLine(), out almacen) && almacen > 0 && almacen <= contadorN)
+                {
+                    break;
+                }
+                Console.WriteLine("¡Error! Selección de almacén inválida. Intente nuevamente.");
+            }
+
+            // Restamos 1 al almacén para que no afecte la posición original en la fila de la matriz
             almacen -= 1;
+
             Console.WriteLine(" ");
-            string texto2 = ("Seleccione la opción del producto a extraer: ");
-            Console.WriteLine(texto2);
-            //Guardamos las posiciones de los productos ingresados
+            Console.WriteLine("Seleccione la opción del producto a extraer: ");
+
+            // Guardamos las posiciones de los productos ingresados
             for (int i = 0; i < contadorP; i++)
             {
                 if (cantidadA[almacen, i] != 0)
@@ -331,35 +344,56 @@ namespace ProyectoFinalSema16
                     posicionPCont++;
                 }
             }
-            //Bucle para mostrar los productos en el almacén seleccionado
+
+            // Bucle para mostrar los productos en el almacén seleccionado
             for (int i = 0; i < posicionPCont; i++)
             {
-                    Console.WriteLine((i + 1) + ": " + tiendacosas[posicionP[i]]);
+                Console.WriteLine($"{i + 1}: {tiendacosas[posicionP[i]]}");
             }
-            //Guardamos la ubicación en las columnas del producto a extraer
-            int productoExtraer = Operaciones.getEntero("> ", texto2);
-            //Restamos 1 a la posición del producto para que no afecte la ubicación original
-            productoExtraer --;
-            Console.WriteLine(" ");
-            string texto3 = ("Ingrese la cantidad a extraer en enteros: ");
-            Console.WriteLine(texto3);
-            int cantidadExtraer = Operaciones.getEntero("> ", texto3);
-            //Restamos la cantidad que había anteriormente con la cantidad a extraer para obtener la cantidad actualizada
-            if (cantidadA[almacen, productoExtraer] != 0)
+
+            // Guardamos la ubicación en las columnas del producto a extraer
+            int productoExtraer;
+            while (true)
             {
-                cantidadA[almacen, productoExtraer] -= cantidadExtraer;
+                Console.Write("> ");
+                if (int.TryParse(Console.ReadLine(), out productoExtraer) && productoExtraer > 0 && productoExtraer <= posicionPCont)
+                {
+                    break;
+                }
+                Console.WriteLine("¡Error! Selección de producto a extraer inválida. Intente nuevamente.");
+            }
+
+            // Restamos 1 a la posición del producto para que no afecte la ubicación original
+            productoExtraer--;
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ingrese la cantidad a extraer en enteros: ");
+            int cantidadExtraer;
+            while (true)
+            {
+                Console.Write("> ");
+                if (int.TryParse(Console.ReadLine(), out cantidadExtraer) && cantidadExtraer > 0)
+                {
+                    break;
+                }
+                Console.WriteLine("¡Error! La cantidad a extraer debe ser mayor que cero. Intente nuevamente.");
+            }
+
+            // Restamos la cantidad que había anteriormente con la cantidad a extraer para obtener la cantidad actualizada
+            if (cantidadA[almacen, posicionP[productoExtraer]] >= cantidadExtraer)
+            {
+                cantidadA[almacen, posicionP[productoExtraer]] -= cantidadExtraer;
                 Console.WriteLine("------------------------------------------------\n" +
-                "Confirmación: Producto extraído del almacén exitosamente.");
-                Console.ReadKey();
+                    "Confirmación: Producto extraído del almacén exitosamente.");
             }
             else
             {
-                Console.WriteLine("\n¡Error! El producto no existe en el almacén");
-                Console.ReadKey();
-                return;
+                Console.WriteLine("\n¡Error! La cantidad a extraer es mayor que la cantidad en el almacén");
             }
 
+            Console.ReadKey();
         }
+
         public static void VerStock()
         {
 
