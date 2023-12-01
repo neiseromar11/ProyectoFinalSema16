@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalSema16
 {
-    //Pantallas secundarias
+    //Pantallas Tercearias  
     public class PantallasTerciarias
     {
         public static string[] tiendacosas = new string[100];
@@ -16,11 +16,11 @@ namespace ProyectoFinalSema16
         public static int contadorP = 0;
         public static int contadorN = 0;
 
-        /*
-            
+        /********************************************************************************************************************/
+        /*   
             GESTIONAR PRODUCTO
-
          */
+        /********************************************************************************************************************/
         public static int AgregarProducto()
         {
             //agregar productos
@@ -55,6 +55,9 @@ namespace ProyectoFinalSema16
                 return PantallasSecundarias.GestionarProductos();
         }
 
+        /********************************************************************************************************************/
+        //eliminar producto
+        /********************************************************************************************************************/
         public static int EliminarProducto()
         {
             string texto = "===== Pantalla para Eliminar Producto =====\r\n" +
@@ -89,6 +92,9 @@ namespace ProyectoFinalSema16
             return PantallasSecundarias.GestionarProductos();
         }
 
+        /********************************************************************************************************************/
+        //modificar producto
+        /********************************************************************************************************************/
         public static int ModificarProducto()
         {
             string texto = "===== Pantalla para Modificar Producto =====\r\n" +
@@ -117,20 +123,18 @@ namespace ProyectoFinalSema16
                 "Confirmación: Producto modificado exitosamente.\r\n";
                 Console.Write(texto1);
             }
-
             else
             {
                 Console.WriteLine("No se ha encontrado el producto");
             }
-
-
-            
-
             Console.ReadKey();
             Console.Clear();
             return PantallasSecundarias.GestionarProductos();
         }
 
+        /********************************************************************************************************************/
+        // mostrar producto
+        /********************************************************************************************************************/
         public static int MostrarInventario()
         {
             string texto = "===== Pantalla para Mostrar Inventario =====\r\n" +
@@ -159,14 +163,15 @@ namespace ProyectoFinalSema16
             Console.Clear();
             return PantallasSecundarias.GestionarProductos();
         }
-
+        /********************************************************************************************************************/
         /*
-          
-          
           GESTIONAR ALMACEN
-          
-          
         */
+        /********************************************************************************************************************/
+
+        //agregar almacen
+
+        /********************************************************************************************************************/
         public static void AgregarAlmacen()
         {
             string texto = "===== Pantalla para Agregar Almacén =====\r\n" +
@@ -185,6 +190,11 @@ namespace ProyectoFinalSema16
             Console.ReadKey();
             Console.Clear();
         }
+
+        /********************************************************************************************************************/
+        //Eliminar almacen
+        /********************************************************************************************************************/
+
         public static void EliminarAlmacen()
         {
             string texto = "===== Pantalla para Eliminar Almacén =====\r\n" +
@@ -227,6 +237,9 @@ namespace ProyectoFinalSema16
             Console.Clear();
         }
 
+        /********************************************************************************************************************/
+        //mostrar almacenes
+        /********************************************************************************************************************/
         public static void MostrarAlmacenes()
         {
             string texto = "===== Pantalla para Mostrar Almacenes =====\r\n" +
@@ -243,10 +256,10 @@ namespace ProyectoFinalSema16
             Console.Clear();
         }
 
+        /********************************************************************************************************************/
         /*
-             
-            AGREGAR Y EXTRAER PRODUCTOS
-         
+            AGREGAR Y EXTRAER PRODUCTOS     
          */
+        /********************************************************************************************************************/
     }
 }

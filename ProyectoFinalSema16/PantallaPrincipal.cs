@@ -8,6 +8,8 @@ namespace ProyectoFinalSema16
 {
     public class PantallaPrincipal
     {
+
+       //Pantalla principal
         public static int PantallaMain()
         {
             do
@@ -21,23 +23,25 @@ namespace ProyectoFinalSema16
                     "|| 1. Gestionar Productos                       ||\r\n" +
                     "|| 2. Gestionar Almacenes                       ||\r\n" +
                     "|| 3. Agregar y Extraer Productos               ||\r\n" +
-                    "|| 4. Salir                                     ||\r\n" +
                     "==================================================\r\n");
                 Console.Write(texto);
                 int opciones = int.Parse(Console.ReadLine());
                 if (opciones == 1)
                 {
+                    //gestionar productos
                     Console.Clear();
                     PantallasSecundarias.GestionarProductos();
                 }
                 if (opciones == 2)
                 {
+                    //gestionar almacenes
                     Console.Clear();
                     PantallasSecundarias.GestionarAlmacenes();
 
                 }
                 if (opciones == 3)
                 {
+                    //agregar extraer productos
                     Console.Clear();
                     PantallasSecundarias.AgregarExtraerProductos();
                 }
