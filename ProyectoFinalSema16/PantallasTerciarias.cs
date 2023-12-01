@@ -339,7 +339,7 @@ namespace ProyectoFinalSema16
             //Guardamos la ubicación en las columnas del producto a extraer
             int productoExtraer = Operaciones.getEntero("> ", texto2);
             //Restamos 1 a la posición del producto para que no afecte la ubicación original
-            productoExtraer -= 1;
+            productoExtraer --;
             Console.WriteLine(" ");
             string texto3 = ("Ingrese la cantidad a extraer en enteros: ");
             Console.WriteLine(texto3);
@@ -372,7 +372,14 @@ namespace ProyectoFinalSema16
                 {
                 for (int j = 0; j < contadorP; j++)
                 {
-                    Console.WriteLine($"Almacén: [{nombre[i]}] - Producto {j + 1}: [{tiendacosas[j]}] - Cantidad: [{cantidadA[i, j]}]");
+                    if (cantidadA[i, j] <= 0)
+                    {
+                        Console.WriteLine($"Almacén: [{nombre[i]}] - Producto {j + 1}: [{tiendacosas[j]}] - Cantidad: [vacío]");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Almacén: [{nombre[i]}] - Producto {j + 1}: [{tiendacosas[j]}] - Cantidad: [{cantidadA[i, j]}]");
+                    }
                 }
                 }
             Console.ReadKey();
