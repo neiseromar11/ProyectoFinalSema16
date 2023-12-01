@@ -100,7 +100,7 @@ namespace ProyectoFinalSema16
         //funcion de gestionar almacenes
         public static int AgregarExtraerProductos()
         {
-            
+            Console.Clear();
                 string texto1 = "--------------------------------------------------\n" +
             "||  Agregar y Extraer Productos - Mi Tiendita   ||\n" +
             "--------------------------------------------------\n" +
@@ -116,20 +116,20 @@ namespace ProyectoFinalSema16
             if (opciones == 1)
             {
                 Console.Clear();
-                //PantallasTerciarias.IngresarProducto();
-                return GestionarAlmacenes();
+                PantallasTerciarias.IngresarProducto();
+                return AgregarExtraerProductos();
             }
             if (opciones == 2)
             {
                 Console.Clear();
-                //PantallasTerciarias.ExtraerProducto();
-                return GestionarAlmacenes();
+                PantallasTerciarias.ExtraerProducto();
+                return AgregarExtraerProductos();
             }
             if (opciones == 3)
             {
                 Console.Clear();
                 PantallasTerciarias.VerStock();
-                return GestionarAlmacenes();
+                return AgregarExtraerProductos();
             }
             if (opciones == 4)
             {

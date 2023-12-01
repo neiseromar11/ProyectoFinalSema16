@@ -15,6 +15,13 @@ namespace ProyectoFinalSema16
         public static float[] cantidad=new float[100];
         public static int contadorP = 0;
         public static int contadorN = 0;
+        //Declaramos arreglos
+        public static string[] almacenes = new string[100];
+        public static string[] productos = new string[100];
+        public static int[] cantidadA = new int[100];
+        public static int almacenesCont = 0;
+        public static int productosCont = 0;
+        public static int cantidadCont = 0;
 
         /********************************************************************************************************************/
         /*   
@@ -261,13 +268,88 @@ namespace ProyectoFinalSema16
             AGREGAR Y EXTRAER PRODUCTOS     
          */
         /********************************************************************************************************************/
+        public static void IngresarProducto()
+        {
+            string texto = "===== Pantalla para Ingresar Producto en Almacén =====\r\n" +
+                "------------------------------------------------\r\n" +
+                "Seleccione el almacén: \r\n";
+            Console.Write(texto);
+            //Mostramos todos los almacenes
+            for (int i = 0; i < contadorN; i++)
+            {
+                Console.WriteLine("Almacén " + (i + 1) + ": " + nombre[i]);
+            }
+            //Guardamos el almacén a buscar
+            almacenes[almacenesCont] = Operaciones.getTextoPantalla("> ");
+            Console.WriteLine(" ");
+            Console.WriteLine("Seleccione el producto a ingresar: ");
+            //Mostramos todos los productos ingresados
+            for (int i = 0; i < contadorP; i++)
+            {
+                Console.WriteLine("Producto " + (i + 1) + ": " + tiendacosas[i]);
+            }
+            //Guardamos el producto que se desea y la cantidad en sus respectivos arreglos en la posición del almacén
+            productos[productosCont] = Operaciones.getTextoPantalla("> ");
+            Console.WriteLine(" ");
+            Console.Write("Coloque la cantidad a ingresar: \n> ");
+            cantidadA[cantidadCont] = int.Parse(Console.ReadLine());
+            Console.WriteLine("------------------------------------------------\n" +
+                "Confirmación: Producto ingresado en el almacén exitosamente.");
+            productosCont++;
+            cantidadCont++;
+
+        }
+        public static void ExtraerProducto()
+        {
+            int posicion = 0;
+            string texto = "===== Pantalla para Extraer Producto de Almacén =====\n" +
+                "--------------------------------------------------\n" +
+                "Seleccione el almacén: ";
+            Console.WriteLine(texto);
+            //Mostramos todos los almacenes
+            for (int i = 0; i < contadorN; i++)
+            {
+                Console.WriteLine("Almacén " + (i + 1) + ": " + nombre[i]);
+            }
+            //Guardamos el almacén a buscar
+            string almacen = Operaciones.getTextoPantalla("> ");
+            Console.WriteLine(" ");
+            //Buscamos el almacén y guardamos su posición
+            for (int i = 0; i < contadorN; i++)
+            {
+                if (almacenes[i] == almacen)
+                {
+                    posicion = i;
+                }
+            }
+            Console.WriteLine("Seleccione el producto a extraer: ");
+            //Mostramos todos los productos ingresados
+            for (int i = 0; i < contadorP; i++)
+            {
+                Console.WriteLine("Producto " + (i + 1) + ": " + tiendacosas[i]);
+            }
+            //Guardamos el producto a extraer y lo modificamos
+            string productoExtraer = Console.ReadLine();
+            if (productos[posicion] == productoExtraer)
+            {
+                productos[posicion] = " ";
+                Console.Write("Ingrese la cantidad a extraer: \n> ");
+                int cantidadExtraer = int.Parse(Console.ReadLine());
+                cantidadA[posicion] -= cantidadExtraer;
+                Console.WriteLine("------------------------------------------------\n" +
+                    "Confirmación: Producto extraído del almacén exitosamente.");
+            }
+            else { Console.WriteLine("El producto ingresado no existe en el almacén"); }
+        }
         public static void VerStock()
         {
-
-            Console.WriteLine("HOLA MUNDO");
-
-            Console.ReadKey();
-            Console.Clear();
+                Console.WriteLine("===== Pantalla para Ver Stock Actual =====\n" +
+                    "--------------------------------------------------\n" +
+                    "Stock Actual en Todos los Almacenes: ");
+                for (int i = 0; i < productosCont; i++)
+                {
+                    Console.WriteLine($"Producto {i + 1}: [{productos[i]}] - Almacén: [{almacenes[i]}] - Cantidad: [{cantidadA[i]}]");
+                }
         }
 
     }
